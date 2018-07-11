@@ -1,0 +1,94 @@
+Bar Chart explanation (written by Emma Johnson, 2018):
+
+1.	The script tag in the head tag connects it to the Chart.js library
+
+2.	The form collects data, but rather than sending it to a php file, it all stays on the page and runs in the js code seen further down
+
+3.	The form updates based on the order of the array in the chart script, so the first textbox is green, the second is grey, etc
+
+4.	The class within the div surrounding the canvas connects to the Barchart.css document, putting the graph within some padding and a border
+
+5.	The canvas tags are what display the graph, and the style controls the width in pixels. If either are removed, graph will not display. 
+Width can be adjusted to fit screen at the “responsive” and “maintainAspectRatio” lines within the chart script. 
+If these are changed to true, style will be used as a ratio rather than a pixel number. Example: 8:1 ratio rather than 800px and 100px.
+
+6.	Chart is set as a variable so that the chart can be manipulated below the chart script
+
+7.	Type=”horizontal-bar” pulls code from the Chart.js library
+
+8.	Labels (within data) is an array that lists titles of the individual bars in order of appearance (green then grey)
+
+9.	Data (within datasets which is within data) is also an array that lists in order of bar appearance
+
+10.	The label goes to the legend display, but the legend display is currently set to false because it was only displaying green rather than both green and grey
+
+11.	Background color is another array that gives the bars their color in order of appearance
+
+12.	Options contain most of the styling for the chart, and some of the syntax is touchy
+
+13.	Responsive and Maintain Aspect Ratio are used to keep the graph from overriding given measurements in earlier code. 
+Changing these to false will have the graph span to fit the maximum possible width of the screen, so graph will not fit in minimized windows
+
+14.	Legend display allows the legend to appear, but it is currently turned to false so that there is no confusion with only the green legend popping up 
+
+15.	Title holds the place of what shows up as the chart’s title, and code below the chart script changes what it currently says 
+
+16.	Scales change how the x and y axis appear
+
+17.	Ticks (within scales) change how the x axis labels appear. 
+Begin at zero is true so that scaling accurate and display is false to that there is less clutter across the bottom of the page
+
+18.	Events array controls what happens on hover and on clicks. 
+The default for Chart.js is to display a hover, so by having the empty array for events, that default is overridden and the hover effect is off
+
+19.	Padding keeps the graph from touching the borders of the padding provided in the css
+currently set to false because it was only displaying green rather than both green and grey
+
+20.	Background color is another array that gives the bars their color in order of appearance
+
+21.	Options contain most of the styling for the chart, and some of the syntax is touchy.
+Responsive and Maintain Aspect Ratio are used to keep the graph from overriding given measurements in earlier code. 
+Changing these to false will have the graph span to fit the maximum possible width of the screen, so graph will not fit in minimized windows
+
+22.	Legend display allows the legend to appear, but it is currently turned to false so that there is no confusion with only the green legend popping up
+
+23.	Title holds the place of what shows up as the chart’s title, and code below the chart script changes what it currently says
+
+24.	Scales change how the x and y axis appear
+
+25.	Ticks (within scales) change how the x axis labels appear. 
+Begin at zero is true so that scaling accurate and display is false to that there is less clutter across the bottom of the page
+
+26.	Events array controls what happens on hover and on clicks. 
+The default for Chart.js is to display a hover, so by having the empty array for events, that default is overridden and the hover effect is off
+
+27.	Padding keeps the graph from touching the borders of the padding provided in the css
+
+28.	The submit button has an add event listener which allows the function that updates the graph to be executed.
+
+29.	The form has an id of indexForm, so by setting it in a variable, 
+the function finds the textboxes by putting them into an array and then finding them based on their positions in the array. 
+After finding them in the array, the function pops the placeholders from the dataset and the title and replaces them with the information pulled from the indexForm. 
+The chart then updates and the form is set back to it’s original state of being blank.
+
+30.	The html section of the css changes the font to one of the fonts mentioned in the Gallup Style Guide, 
+the background color is verified as white, and the entirety of the page has a 50px padding
+The Chart Container is what creates the crème color around the chart after it’s been created. 
+The padding is set to 50px, the background is set to a Gallup Style Guide crème, 
+and a black solid border with a width of 2px encloses so that the crème isn’t directly against the white background. 
+The border-radius rounds out the container’s corners
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The MIT License (MIT)
+
+Copyright (c) 2018 Chart.js Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

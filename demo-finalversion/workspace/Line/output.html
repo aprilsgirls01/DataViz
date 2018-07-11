@@ -1,0 +1,75 @@
+<html> 
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <canvas id="line-chart" width="1500" height="450"></canvas>
+<script>
+    
+    var dates = ['1/29/2017', '2/5/2017', '2/12/2017', '2/19/2017', '2/26/2017', '3/5/2017', '3/12/2017', '3/19/2017', '3/26/2017', '4/2/2017', '4/9/2017', '4/16/2017', '4/23/2017', '5/7/2017', '5/14/2017', '5/21/2017', '5/28/2017', '6/4/2017', '6/11/2017', '6/18/2017', '6/25/2017', '7/2/2017', '7/9/2017', '7/16/2017', '7/23/2017', '7/30/2017', '8/6/2017', '8/13/2017', '8/20/2017', '8/27/2017', '9/3/2017', '9/10/2017', '9/17/2017', '9/24/2017', '10/1/2017', '10/8/2017', '10/15/2017', '10/22/2017', '10/19/2017', '11/5/2017', '11/12/2017', '11/19/2017', '11/26/2017', '10/3/2017', '12/10/2017', '12/17/2017', '12/24/2017', '12/31/2017', '1/7/2018', '1/14/2018', '1/21/2018', '1/28/2018', '2/4/2018', '2/11/2018', '2/18/2018', '2/25/2018', '3/4/2018', '3/11/2018', '3/18/2018', '3/25/2018', '3/31/2018', '4/8/2018', '4/15/2018', '4/22/2018', '4/29/2018', '5/6/2018', '5/13/2018', '5/20/2018', '5/27/2018', '6/3/2018', '6/10/2018', '6/17/2018', '6/24/2018', '7/1/2018'];
+    var approvePercent =    [45, 43, 41, 40, 42, 43, 42, 40, 39, 38, 40, 40, 41, 41, 42, 38, 38, 41, 38, 37, 38, 39, 39, 38, 39, 37, 38, 37, 36, 37, 35, 36, 37, 38, 38, 37, 38, 37, 36, 35, 38, 38, 38, 37, 35, 36, 35, 37, 39, 37, 38, 36, 38, 40, 40, 37, 39, 39, 39, 40, 39, 39, 41, 39, 38, 42, 42, 43, 42, 40, 41, 42, 45, 41, 42];
+    var disapprovePercent = [47, 52, 53, 54, 53, 51, 52, 55, 56, 57, 53, 54, 52, 54, 53, 56, 56, 54, 56, 58, 57, 56, 56, 57, 56, 58, 57, 58, 58, 58, 60, 59, 57, 57, 55, 58, 56, 57, 58, 60, 58, 56, 57, 56, 59, 59, 60, 57, 55, 58, 57, 59, 58, 57, 57, 59, 56, 55, 56, 56, 55, 55, 54, 55, 57, 53, 52, 52, 54, 55, 55, 54, 50, 55, 53];
+    
+    //put new code for adding to array here
+
+    dates.push('6/25/17');
+    approvePercent.push(42);
+    disapprovePercent.push(54);
+
+    //end of new additions
+
+    new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [{ 
+        data: approvePercent,
+        label: "Approval Percentage",
+        borderColor: "#61c250",
+        fill: false
+      },{ 
+        data: disapprovePercent,
+        label: "Disapproval Percentage",
+        borderColor: "#595b5c",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "President Trump's Approval Ratings"
+    }, 
+    scales: {
+        yAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Percent"
+          }
+        }],
+        xAxes: [{ 
+            scaleLabel: {
+                display: true,
+                labelString: "Date",
+            },
+        }]
+      }
+    
+  }
+});
+
+</script>
+
+</body>
+
+</html>
+
+
+
+<!-- to add a new date and/or approval rating, copy this code- 
+
+    dates.push('6/25/17');
+    approvePercent.push(42);
+    disapprovePercent.push(54);
+    
+- and insert the data needed. Then, throw completed snippet into the the designated section for adding points under the data arrays-->

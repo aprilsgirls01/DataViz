@@ -1,0 +1,130 @@
+<html>
+  
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="barchart.css">
+  </head>
+  
+  <body>
+    
+    <h2>
+      Insert Info to Create Graph
+    </h2>
+    
+    <form id="indexForm">
+      <h3>Please enter data</h3>
+      <br>
+      
+      <p>Enter a title</p>
+      <input id="title" type="text" />
+      <br>
+      <br>
+      <p>Enter the first number (will be green) (please do not include %)</p>
+      <input id="newApprovePercent" type="number" />
+      <br>
+      <br>
+      <p>Enter the second number (will be grey) (please do not include %)</p>
+      <input id="newDisapprovePercent" type="number" />
+      <br>
+      <br>
+      <p>Enter the first bar's title (if it is the data seen in the previous boxes, please include a % or . if necessary)</p>
+      <input id="newGreenTitle" type="text" />
+      <br>
+      <br>
+      <p>Enter the second bar's title (if it is the data seen in the previous boxes, please include a % or . if necessary)</p>
+      <input id="newGreyTitle" type="text" />
+      <br>
+      
+    </form>
+    
+    <button id="submitButton">Create</button>
+    
+    <br>
+    <br>
+    <br>
+    
+    <div class=chart-container>
+    <canvas id="bar-chart" style="width: 800px; height: 100px"></canvas> 
+    </div>
+    
+  <script>
+
+var myChart = new Chart(document.getElementById("bar-chart"), {
+  type: 'horizontalBar',
+  data: {
+    labels: ["Placeholder", "Placeholder"],
+    datasets: [
+      { 
+        data: [50, 50],
+        label: "Percent",
+        backgroundColor: ["#61c250", "#595b5c"],
+      },
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    legend: { 
+      display: false,
+    },
+    title: {
+      display: true,
+      text: ["Placeholder Title"]
+    },
+    scales: {
+      xAxes: [{ 
+        ticks: {
+          beginAtZero: true,
+          display: false,
+        }
+      }]
+    },
+    events: [],
+    padding: {
+      left: 50,
+      right: 50,
+      top: 0,
+      bottom: 0
+
+  }
+  }
+});
+
+  var submitButton = document.getElementById("submitButton");
+  
+  submitButton.addEventListener("click", function() {
+
+    var indexForm = document.getElementById("indexForm");
+    
+    myChart.data.datasets[0].data.pop();
+    
+    myChart.data.datasets[0].data.pop();
+
+    myChart.data.datasets[0].data.push(Number(indexForm.elements[1].value));
+    
+    myChart.data.datasets[0].data.push(Number(indexForm.elements[2].value));
+    
+    myChart.options.title.text.pop();
+    
+    myChart.options.title.text.push(indexForm.elements[0].value);
+    
+    myChart.data.labels.pop();
+    
+    myChart.data.labels.pop();
+    
+    myChart.data.labels.push(indexForm.elements[3].value);
+    
+    myChart.data.labels.push(indexForm.elements[4].value);
+    
+    myChart.update();
+    
+    document.getElementById("indexForm").reset(); 
+
+  });
+
+</script>
+
+  </body>
+  
+</html>
+

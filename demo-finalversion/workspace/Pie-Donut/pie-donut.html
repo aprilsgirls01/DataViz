@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pie Chart - User Input</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        .chart {
+            width: 100%;
+        }
+
+        #piechart {
+            height: 600px;
+        }
+
+        label {
+            display: block;
+        }
+        
+        #parent {
+  display: flex;
+}
+#narrow {
+  width: 200px;
+  background: lightgreen;
+  /* Just so it's visible */
+}
+#wide {
+  flex: 1;
+  /* Grow to rest of container */
+ 
+  /* Just so it's visible */
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="narrow">
+    <p>Enter your data here:</p>
+    <form id="form1" onsubmit="drawChart(); return false">
+        <label>Percentage 1: <br><input type="text" id="percentage1"></label><br>
+        <label>Percentage 2: <br><input type="text"  id="percentage2"></label><br>
+        <label>Percentage 3: <br><input type="text"  id="percentage3"></label><br>
+        <label>Percentage 4: <br><input type="text" id="percentage4"></label><br>
+        <label>Percentage 5: <br><input type="text"  id="percentage5"></label><br>
+        <label>Percentage 6: <br><input type="text" id="percentage6"></label><br>
+        
+        <br><label>Pie Hole Size (0 - 9): </label><input type="number" id="pieHole"><br><br>
+        
+          <input type="radio" name="type" id="3D"> 3-D<br>
+          <input type="radio" name="type" id="flat"> Flat<br><br>
+        <br><button type="submit" value="Submit">Submit</button>
+    </form>
+    </div>
+      <div id="wide">
+    <div class="chart">
+        <div id="piechart"></div>
+    </div>
+</div>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        //submit requires these to use parseInt to work in chart
+        function drawChart() {
+            
+            var one = parseInt(document.getElementById('percentage1').value);
+            var two = parseInt(document.getElementById('percentage2').value);
+            var three = parseInt(document.getElementById('percentage3').value);
+            var four = parseInt(document.getElementById('percentage4').value);
+            var five = parseInt(document.getElementById('percentage5').value);
+            var six = parseInt(document.getElementById('percentage6').value);
+            var pieHole = parseFloat(document.getElementById('pieHole').value);
+            
+            var threeD = document.getElementById("3D").checked;
+            
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['One', parseFloat(one)],
+                ['Two', parseFloat(two)],
+                ['Three', parseFloat(three)],
+                ['Four', parseFloat(four)],
+                ['Five', parseFloat(five)],
+                ['Six', parseFloat(six)],
+            ]);
+            
+            var options = {
+                enableInteractivity: false,
+                pieHole: parseFloat(pieHole) * 0.1,
+                legend: { position: 'none' },
+                colors: ['#9ED78F','#6CB359', '#448F30', '#0F4800', '#4D6248', '#314231'],
+                is3D: threeD,
+            };
+            
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+            
+            
+            
+        }
+        
+    </script>
+</div>
+</body>
+
+</html>

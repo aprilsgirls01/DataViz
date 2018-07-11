@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<style>
+	.form {
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		text-align: center;
+	}
+
+	.center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+
+	.body {
+		margin: 0;
+	}
+
+	.container {
+		font-family: "adobe-caslon-pro", "Georgia", "serif";
+		position: relative;
+		text-align: center;
+		color: black;
+	}
+
+
+	.centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.per-font {
+		font-size: 300%;
+	}
+</style>
+
+<body>
+	<!-- This form is what gets the user input, title and percentage are not set together because it was easier to apply the styling -->
+	<div class="form">
+
+		<form id="frm2" action="/action_page.php">
+			<br><label for="Percent">Percent: </label><br>
+			<input type="text" autocomplete="false" name="Percent" value="">
+		</form>
+
+		<br><button onclick="setPercentage()">Apply</button><br>
+
+		<form id="frm1" action="/action_page.php">
+			<br><label for="Title">Title: </label><br>
+			<input type="text" autocomplete="false" name="Title" value="">
+		</form>
+
+		<br><button onclick="setTitle()">Apply</button><br>
+
+
+
+		<!--What is actually rendered on the screen, percentage and title are placed on top of graph -->
+		<div class="container">
+			<img src="globe.jpg" style="width:50%;">
+
+			<div class="centered" style="width:45%">
+				<div class="per-font">
+					<h1 id="percentage"></h1>
+				</div>
+				<p id="title"></p>
+			</div>
+		</div>
+
+		<script>
+		//functions that process and output what is put in the input field, called by the apply buttons
+			function setTitle() {
+				var x = document.getElementById("frm1");
+				var text = "";
+				var i;
+				for (i = 0; i < x.length; i++) {
+					text += x.elements[i].value + "<br>";
+				}
+				document.getElementById("title").innerHTML = text;
+			}
+
+			function setPercentage() {
+				var x = document.getElementById("frm2");
+				var text = "";
+				var i;
+				for (i = 0; i < x.length; i++) {
+					text += x.elements[i].value + "<br>";
+				}
+				document.getElementById("percentage").innerHTML = text;
+			}
+		</script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+Globe  explanation (written by Emma Carlson, 2018):
+
+The globe is a simple tool that overlays text on an image of a globe. 
+This is intended to be a visually more interesting way to present a data touchdown (see Gallup's static graphic generation tool, a type of infographic)
+It has not been worked on beyond the initial phase of this project, and so, it has very low functionality. 
+Next steps on this project would be formatting it to be more visually appealing, as well as making it compliant with Gallup's style guide.

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Spreadsheet form</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style>
+    table.formdata {
+      border: 1px solid green;
+      border-collapse: collapse;
+      margin: 1em 0 2em 0;
+    }
+
+    table.formdata th {
+      border: 1px solid green;
+      background-color: #E2E2E2;
+      color: #000000;
+      text-align: left;
+      font-weight: normal;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+      margin: 0;
+    }
+
+    table.formdata td {
+      margin: 0;
+      padding: 0;
+      border: 1px solid green;
+    }
+
+    table.formdata input {
+      width: 80px;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+      margin: 0;
+      border-width: 0;
+      border-style: none;
+    }
+
+    .center {
+
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+    }
+
+    .source,
+    .destination,
+    .other {
+      float: left;
+      width: 20%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .source,
+    .other {
+      margin-right: 4%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div>
+    <div class="source">
+      <div class="form" style="width: 100px">
+
+        <form id="frm1" action="/action_page.php">
+
+          <label for="Title">Title: </label>
+
+          <input type="text" name="Title" autocomplete="off" value=""><br>
+
+        </form><br>
+
+        <button onclick="setTitle()">Apply</button>
+
+        <form id="frm2" action="/action_page.php">
+
+          <br><label for="Subtitle">Subtitle: </label>
+
+          <input type="text" name="Subtitle" autocomplete="off" value=""><br>
+
+        </form><br>
+
+        <button onclick="setSubTitle()">Apply</button><br><br>
+
+
+      </div>
+    </div>
+    <div class="destination"></div>
+
+    <form>
+
+      <label for="X-axis">X-axis name: </label>
+       <input type="text" name="X-axis" id="X-axis" autocomplete="off" value=" "><br>
+      <br><label for="Y-axis">Y-axis name: </label>
+      <input type="text" name="Y-axis" id="Y-axis" autocomplete="off" value=" "><br>
+
+
+    </form><br>
+    <button onclick="drawVisualization()">Apply</button><br><br>
+  </div>
+
+  <div>
+
+  </div>
+
+  <div>
+
+    <form>
+
+      <table class="formdata" summary="This table contains a form">
+
+
+        <tr>
+          <th scope="row">Date</th>
+          <td><input type="text" name="Month1" id="Month1" /></td>
+          <td><input type="text" name="Month2" id="Month2" /></td>
+          <td><input type="text" name="Month3" id="Month3" /></td>
+          <td><input type="text" name="Month4" id="Month4" /></td>
+          <td><input type="text" name="Month5" id="Month5" /></td>
+          <td><input type="text" name="Month6" id="Month6" /></td>
+          <td><input type="text" name="Month7" id="Month7" /></td>
+          <td><input type="text" name="Month8" id="Month8" /></td>
+          <td><input type="text" name="Month9" id="Month9" /></td>
+          <td><input type="text" name="Month10" id="Month10" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Country 1</th>
+          <td><input type="number" name="c1m1" id="c1m1" /></td>
+          <td><input type="number" name="c1m2" id="c1m2" /></td>
+          <td><input type="number" name="c1m3" id="c1m3" /></td>
+          <td><input type="number" name="c1m4" id="c1m4" /></td>
+          <td><input type="number" name="c1m5" id="c1m5" /></td>
+          <td><input type="number" name="c1m6" id="c1m6" /></td>
+          <td><input type="number" name="c1m7" id="c1m7" /></td>
+          <td><input type="number" name="c1m8" id="c1m8" /></td>
+          <td><input type="number" name="c1m9" id="c1m9" /></td>
+          <td><input type="number" name="c1m10" id="c1m10" /></td>
+
+        </tr>
+
+        <tr>
+          <th scope="row">Country 2</th>
+          <td><input type="number" name="c2m1" id="c2m1" /></td>
+          <td><input type="number" name="c2m2" id="c2m2" /></td>
+          <td><input type="number" name="c2m3" id="c2m3" /></td>
+          <td><input type="number" name="c2m4" id="c2m4" /></td>
+          <td><input type="number" name="c2m5" id="c2m5" /></td>
+          <td><input type="number" name="c2m6" id="c2m6" /></td>
+          <td><input type="number" name="c2m7" id="c2m7" /></td>
+          <td><input type="number" name="c2m8" id="c2m8" /></td>
+          <td><input type="number" name="c2m9" id="c2m9" /></td>
+          <td><input type="number" name="c2m10" id="c2m10" /></td>
+
+        </tr>
+
+        <tr>
+          <th scope="row">Country 3</th>
+          <td><input type="number" name="c3m1" id="c3m1" /></td>
+          <td><input type="number" name="c3m2" id="c3m2" /></td>
+          <td><input type="number" name="c3m3" id="c3m3" /></td>
+          <td><input type="number" name="c3m4" id="c3m4" /></td>
+          <td><input type="number" name="c3m5" id="c3m5" /></td>
+          <td><input type="number" name="c3m6" id="c3m6" /></td>
+          <td><input type="number" name="c3m7" id="c3m7" /></td>
+          <td><input type="number" name="c3m8" id="c3m8" /></td>
+          <td><input type="number" name="c3m9" id="c3m9" /></td>
+          <td><input type="number" name="c3m10" id="c3m10" /></td>
+
+        </tr>
+
+        <tr>
+          <th scope="row">Country 4</th>
+          <td><input type="number" name="c4m1" id="c4m1" /></td>
+          <td><input type="number" name="c4m2" id="c4m2" /></td>
+          <td><input type="number" name="c4m3" id="c4m3" /></td>
+          <td><input type="number" name="c4m4" id="c4m4" /></td>
+          <td><input type="number" name="c4m5" id="c4m5" /></td>
+          <td><input type="number" name="c4m6" id="c4m6" /></td>
+          <td><input type="number" name="c4m7" id="c4m7" /></td>
+          <td><input type="number" name="c4m8" id="c4m8" /></td>
+          <td><input type="number" name="c4m9" id="c4m9" /></td>
+          <td><input type="number" name="c4m10" id="c4m10" /></td>
+
+        </tr>
+
+        <tr>
+          <th scope="row">Average</th>
+          <td><input type="number" name="Average1" id="Average1" /></td>
+          <td><input type="number" name="Average2" id="Average2" /></td>
+          <td><input type="number" name="Average3" id="Average3" /></td>
+          <td><input type="number" name="Average4" id="Average4" /></td>
+          <td><input type="number" name="Average5" id="Average5" /></td>
+          <td><input type="number" name="Average6" id="Average6" /></td>
+          <td><input type="number" name="Average7" id="Average7" /></td>
+          <td><input type="number" name="Average8" id="Average8" /></td>
+          <td><input type="number" name="Average9" id="Average9" /></td>
+          <td><input type="number" name="Average10" id="Average10" /></td>
+
+        </tr>
+
+      </table>
+
+  </div>
+
+
+  </form>
+
+  <button onclick="drawVisualization()">Apply Changes</button>
+
+  <div class="center">
+
+    <b><h1 id="title"></h1></b>
+
+    <p id="subtitle"></p>
+
+    <div></div>
+
+  </div>
+  <div id="chart_div" style="width: 900px; height: 500px; margin-left: auto; margin-right:auto;"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="multigraph.js"></script>
+
+</html>

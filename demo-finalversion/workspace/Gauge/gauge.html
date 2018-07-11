@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['gauge'] });
+    google.charts.setOnLoadCallback(drawChartGauge1);
+    google.charts.setOnLoadCallback(drawChartGauge2);
+    
+    //beyond some name changes and minor adjustments to the code to get the form(s) working, this code can be found at:
+    //https://developers.google.com/chart/interactive/docs/gallery/gauge
+    
+    function drawChartGauge1() {
+      var l1 = document.getElementById("Label1").value;
+      var v1 = document.getElementById("Value1").value;
+      var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        [l1, parseFloat(v1)],
+
+      ]);
+      //Goes from red to green
+      var options = {
+
+        width: 250,
+        height: 250,
+        redFrom: 0,
+        redTo: 50,
+        yellowFrom: 50,
+        yellowTo: 75,
+        greenFrom: 75,
+        greenTo: 100,
+        minorTicks: 20,
+        max: 100,
+        min: 0,
+        majorTicks: ['1', '100']
+
+
+      };
+
+      var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+
+    }
+
+    function drawChartGauge2() {
+
+      var l2 = document.getElementById("Label2").value;
+      var v2 = document.getElementById("Value2").value;
+      var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        [l2, parseFloat(v2)],
+
+      ]);
+      //Goes from green to red
+      var options = {
+        width: 250,
+        height: 250,
+        greenFrom: 0,
+        greenTo: 50,
+        yellowFrom: 50,
+        yellowTo: 75,
+        redFrom: 75,
+        redTo: 100,
+        minorTicks: 20,
+        max: 100,
+        min: 0,
+        majorTicks: ['1', '100']
+
+      };
+      //charts are rendered by google charts js
+      var chart = new google.visualization.Gauge(document.getElementById('chart2_div'));
+
+      chart.draw(data, options);
+
+    }
+  </script>
+
+</head>
+
+<body>
+  <br><br>
+  <!--forms for guage 1 and guage 2 -->
+  <h1>Gauge #1</h1>
+  <label for="Label1">Label: </label>
+  <input type="text" name="Label1" id="Label1" autocomplete="false" /><br>
+  <label for="Value1">Value: </label>
+  <input type="number" name="Value1" id="Value1" autocomplete="false" />
+  <br> <br>
+
+  <button onclick="drawChartGauge1()">Apply</button><br><br>
+  <!-- chart is rendered in div below -->
+  <div id="chart_div"></div> <br> <br>
+
+  <h1>Gauge #2</h1>
+  <label for="Label2">Label: </label>
+  <input type="text" name="Label2" id="Label2" autocomplete="false" />
+  <br>
+  <label for="Value2">Value: </label>
+  <input type="number" name="Value2" id="Value2" autocomplete="false" />
+  <br> <br>
+
+  <button onclick="drawChartGauge2()">Apply</button><br><br>
+  
+  <div id="chart2_div" style="width: 400px; height: 120px;"></div>
+
+</body>
+
+</html>
