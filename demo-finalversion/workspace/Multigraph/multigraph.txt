@@ -1,0 +1,24 @@
+Multigraph explanation (written by Emma Carlson, 2018):
+
+This is a graph that can be found in Google charts library: https://developers.google.com/chart/interactive/docs/gallery/combochart
+A table is used for inputs, the boxes in the country rows are for the bar graph and the row labeled average is used for rendering the line.
+The x and y axis can be given names using the form, and title and subtitle can be provided. Only the row labeled month must have content for the chart to render.
+Not all months must be used, but the months with input must start with the first box. 
+
+This code is subject to both  Creative Commons Attribution 3.0 License and the Apache 2.0 License
+
+-----------------------------------------------------------------
+
+Copyright 2018 Emma Carlson
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
